@@ -1,7 +1,6 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Text } from 'react-native';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function TabsLayout() {
   return (
@@ -17,10 +16,7 @@ export default function TabsLayout() {
       tabBarLabelStyle: { fontSize: 12 },
       tabBarIconStyle: { marginBottom: -3 },
       tabBarItemStyle: { paddingVertical: 5 },
-      tabBarShowLabel: true,
-      tabBarLabelPosition: 'below-icon',
-      tabBarHideOnKeyboard: true,
-      tabBarAccessibilityLabel: 'Main Navigation',
+
     }}>
       <Tabs.Screen
       name="index"
@@ -30,7 +26,7 @@ export default function TabsLayout() {
       }}
       />
       <Tabs.Screen
-      name="(tasks)/index"
+      name="task"
       options={{
         title: 'Tasks',
         tabBarIcon: ({ color }) => <FontAwesome size={28} name="check-square-o" color={color} />,
@@ -43,6 +39,8 @@ export default function TabsLayout() {
         tabBarIcon: ({ color }) => <FontAwesome size={28} name="info-circle" color={color} />,
       }}
       />
+      
+
     </Tabs>
   );
 }
