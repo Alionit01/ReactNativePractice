@@ -1,10 +1,25 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from 'react-native';
+import React from 'react';
+import TaskItem from './taskItem';
+import { TaskType } from '../(tabs)/taskScreen';  // ✅ Reuse shared type
 
-export default function Tasklist() {
+type TaskListProps = {
+  tasks: TaskType[];
+  onChangeTask: (task: TaskType) => void;
+  onDeleteTask: (id: number) => void;
+};
+
+export default function TaskList({ tasks, onChangeTask, onDeleteTask }: TaskListProps) {
   return (
     <View>
-      <Text>tasklist</Text>
+      {tasks.map(task => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onChange={onChangeTask}
+          onDelete={onDeleteTask}
+        />
+      ))}
     </View>
-  )
+  );
 }
